@@ -20,6 +20,7 @@ namespace HelloWorld.Controllers
 
         public IActionResult Index()
         {
+        string book;
             return View();
         }
 
