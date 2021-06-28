@@ -1,0 +1,5 @@
+#lets ignore not need folders
+/HelloWorld/bin
+/HelloWorld/obj
+
+.idea
