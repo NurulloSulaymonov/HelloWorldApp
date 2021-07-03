@@ -25,7 +25,11 @@ namespace HelloWorld.Controllers
 
         public IActionResult Privacy()
         {
-string b="test";
+            string b = "test";
+            return View();
+        }
+        public IActionResult Salomati()
+        {
             return View();
         }
 
