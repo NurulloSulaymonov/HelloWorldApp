@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\TeachersService" />
+    <Folder Include="Models\ViewModel" />
+  </ItemGroup>
+
 </Project>
