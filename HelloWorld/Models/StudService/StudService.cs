@@ -12,7 +12,7 @@ namespace HelloWorld.Models.ViewModel
     {
         public StudService()
         {
-            
+
         }
         public List<Stud> GetListOfStud()
         {
@@ -24,9 +24,19 @@ namespace HelloWorld.Models.ViewModel
         public Stud NewStudent(Stud newstudent)
         {
             var everyone = GetListOfStud();
-            var min = everyone.OrderBy(x => x.id).Last();
-            newstudent.id = min.id + 1 ;
-            everyone.Add(newstudent);
+            //if collection is empty we just add a new student
+            if (everyone.Count == 0)
+            {
+                newstudent.Id = 1;
+                everyone.Add(newstudent);
+            }
+            else // we get last record id 
+            {
+                var min = everyone.OrderBy(x => x.Id).Last();
+                newstudent.Id = 1;
+                everyone.Add(newstudent);
+            }
+
             var text = JsonConvert.SerializeObject(everyone);
             System.IO.File.WriteAllText("student.json", text);
             return newstudent;

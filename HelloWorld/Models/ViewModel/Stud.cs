@@ -2,8 +2,8 @@
 {
     public class Stud
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string gmail { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Gmail { get; set; }
     }
 }

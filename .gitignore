@@ -3,3 +3,6 @@
 /HelloWorld/obj
 
 .idea
+HelloWorld/student.json
+.vscode/tasks.json
+.vscode/launch.json
