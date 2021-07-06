@@ -9,7 +9,8 @@ namespace HelloWorld.Models.ViewModel
         }
         public List<Stud> GetListOfStud()
         {
-            
+            var newlist = new List<Stud>();
+            return newlist;
         }
     }
 }
