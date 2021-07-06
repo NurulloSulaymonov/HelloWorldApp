@@ -1,1 +1,17 @@
-﻿<h2>Adding student page</h2>
+﻿@model HelloWorld.Models.ViewModel.Stud
+<form action="add" method="post">
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="name"></label>
+            <input type="text" class="form-control" placeholder="Name" asp-for="name">
+            <span class="text-danger" asp-validation-for="name"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="gmail"></label>
+            <input type="text" class="form-control" placeholder="Gmail" asp-for="gmail">
+            <span class="text-danger" asp-validation-for="gmail"></span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
