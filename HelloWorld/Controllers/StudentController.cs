@@ -22,7 +22,14 @@ namespace HelloWorld.Controllers
             return View();
         }
 
-        public IActionResult add(Stud student)
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View(new Stud());
+        }
+
+        [HttpPost]
+        public IActionResult Add(Stud student)
         {
             if (ModelState.IsValid == false)
                 return View(student);
