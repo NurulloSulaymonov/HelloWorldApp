@@ -1,1 +1,9 @@
-﻿<h3>Here is the Index page</h3>
+﻿@model List<Stud>
+
+@foreach (var student in Model)
+{
+    <h1>Name : @student.Name</h1>
+    <h1>Gmail : @student.Gmail</h1>
+    <a href="/student/update?id=@student.Id">Edit</a>  
+    <hr/>
+}

@@ -16,9 +16,9 @@ namespace HelloWorld.Models.ViewModel
         }
         public List<Stud> GetListOfStud()
         {
-            var newlist = File.ReadAllText("student.json");
-            var studeent = JsonConvert.DeserializeObject<List<Stud>>(newlist);
-            return studeent;
+            var jsonString = File.ReadAllText("student.json");
+            var studentList = JsonConvert.DeserializeObject<List<Stud>>(jsonString);
+            return studentList;
         }
 
         public Stud NewStudent(Stud newstudent)
@@ -32,14 +32,32 @@ namespace HelloWorld.Models.ViewModel
             }
             else // we get last record id 
             {
-                var min = everyone.OrderBy(x => x.Id).Last();
-                newstudent.Id = 1;
+                var lastStudent = everyone.OrderBy(x => x.Id).Last();
+                newstudent.Id = lastStudent.Id + 1;
                 everyone.Add(newstudent);
             }
 
             var text = JsonConvert.SerializeObject(everyone);
             System.IO.File.WriteAllText("student.json", text);
             return newstudent;
+        }
+
+        public Stud GetStudentForUpdate(int id)
+        {
+            var students = GetListOfStud();
+            return students.First(x => x.Id == id);
+        }
+
+        public Stud UpdateStudent(Stud student)
+        {
+            var students = GetListOfStud();
+            var findStudent = students.First(x=>x.Id == student.Id);
+            findStudent.Gmail = student.Gmail;
+            findStudent.Name = student.Name;
+            
+            var text = JsonConvert.SerializeObject(students);
+            File.WriteAllText("student.json", text);
+            return student;
         }
     }
 }

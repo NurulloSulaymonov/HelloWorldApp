@@ -5,16 +5,16 @@ namespace HelloWorld.Controllers
 {
     public class StudentController : Controller
     {
-        // GET
         private readonly StudService _studService;
-
-        public StudentController()
+        private int cnt;
+        public StudentController() //constructor
         {
             _studService = new StudService();
         }
         public IActionResult Index()
         {
-            return View();
+            var listofStudents = _studService.GetListOfStud();
+            return View(listofStudents);
         }
 
         public IActionResult list()
@@ -25,7 +25,8 @@ namespace HelloWorld.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            return View(new Stud());
+            var emptyStudent = new Stud();
+            return View(emptyStudent);
         }
 
         [HttpPost]
@@ -33,8 +34,18 @@ namespace HelloWorld.Controllers
         {
             if (ModelState.IsValid == false)
                 return View(student);
-            var adding = _studService.NewStudent(student);
-            return RedirectToAction("list");
+            _studService.NewStudent(student);
+            return RedirectToAction("Index");
+        }
+        
+        
+        //for update
+
+        [HttpGet]
+        public IActionResult Update([FromQuery] int id)
+        {
+            var student = _studService.GetStudentForUpdate(id);
+            return View(student);
         }
     }
 }

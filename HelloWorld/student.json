@@ -1,1 +1,12 @@
-[{"Id":1,"Name":"dfdf","Gmail":"dfdfdf"},{"Id":1,"Name":"Alijon Murtazoev","Gmail":"murtazoevalijon@gmail.com"}]
+[
+  {
+    "Id": 1,
+    "Name": "Akbar",
+    "Gmail": "Akbar@gmail.com"
+  },
+  {
+    "Id": 2,
+    "Name": "Nurullo",
+    "Gmail": "nurullo@gmail.com"
+  }
+]

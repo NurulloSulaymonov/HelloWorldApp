@@ -1,8 +1,9 @@
-﻿@model Stud
-<form action="Add" method="post">
+@model Stud
+<form action="Add" method="put">
 
     <div class="form-row">
         <div class="form-group col-md-6">
+            <input hidden type="text" asp-for="Id">
             <label asp-for="Name"></label>
             <input type="text" class="form-control" placeholder="Name" asp-for="Name">
             <span class="text-danger" asp-validation-for="Name"></span>
@@ -13,5 +14,5 @@
             <span class="text-danger" asp-validation-for="Gmail"></span>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary">Update</button>
 </form>
