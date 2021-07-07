@@ -37,8 +37,8 @@ namespace HelloWorld.Controllers
             _studService.NewStudent(student);
             return RedirectToAction("Index");
         }
-        
-        
+
+
         //for update
 
         [HttpGet]
@@ -46,6 +46,14 @@ namespace HelloWorld.Controllers
         {
             var student = _studService.GetStudentForUpdate(id);
             return View(student);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Stud model)
+        {
+            if (ModelState.IsValid == false) return View(model);
+            var update = _studService.UpdateStudent(model);
+            return RedirectToAction("Index");
         }
     }
 }
