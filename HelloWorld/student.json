@@ -1,1 +1,1 @@
-[{"Id":1,"Name":"Akbar","Gmail":"Akbar@gmail.com"},{"Id":2,"Name":"Nurullo","Gmail":"nurullobey@gmail.com"}]
+[{"Id":1,"Name":"Akbar","Surname":null,"BirthData":null,"Gmail":"Akbar@gmail.com"},{"Id":2,"Name":"Nurullo","Surname":null,"BirthData":null,"Gmail":"nurullobey@gmail.com"},{"Id":3,"Name":"safar","Surname":"Abdurahmonzoda","BirthData":"2021-07-07","Gmail":"safar@gmail.com"},{"Id":4,"Name":"asc","Surname":"asdvasd","BirthData":"2021-07-04","Gmail":"safar@gmail.com"},{"Id":5,"Name":"Akbar","Surname":"asdc","BirthData":"2021-06-29","Gmail":"Akbar@gmail.com"}]
