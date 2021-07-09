@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+<title>HiLite.tj</title>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,8 +23,14 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                            <div class="dropdown" style="animation: backwards">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">StudentController</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/Teachers/TeacherCreate" style="color: green">New Teacher</a>
+                                    <a class="dropdown-item" href="/Teachers/TeacherList" style="color: deepskyblue">Our Teachers</a>
+                                </div>
+                            </div>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -34,13 +41,7 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - HelloWorld - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

@@ -1,0 +1,18 @@
+﻿@model List<FirstProject.Models.ModelView.TeacherModel>
+<table class="table">
+    <thead>
+    <th scope="col">Name</th>
+    <th scope="col">Surname</th>
+    <th scope="col">Age</th>
+    </thead>
+    <tbody>
+    @foreach (var teachers in Model)
+    {
+        <tr>
+        <th scope="row">@teachers.Name</th>
+        <td>@teachers.Surname</td>                              
+        <td>@teachers.Age</td>     
+        </tr>                 
+    }
+    </tbody>
+</table>
