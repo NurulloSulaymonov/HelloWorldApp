@@ -55,5 +55,12 @@ namespace HelloWorld.Controllers
             var update = _studService.UpdateStudent(model);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Delete([FromQuery] int id)
+        {
+            _studService.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,9 +1,32 @@
 ﻿@model List<Stud>
 
-@foreach (var student in Model)
-{
-    <h1>Name : @student.Name</h1>
-    <h1>Gmail : @student.Gmail</h1>
-    <a href="/student/update?id=@student.Id">Edit</a>  
-    <hr/>
-}
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">First</th>
+    <th scope="col">Last</th>
+    <th scope="col">Handle</th>
+  </tr>
+  </thead>
+  <tbody>
+  @foreach (var student in Model)
+  {
+    <tr>
+      <th scope="row">@student.Id</th>
+      <td>@student.Name</td>
+      <td>@student.Gmail</td>
+      <td>
+        <a href="/student/update?id=@student.Id">Edit</a>
+        <button onclick="alert('Congrats')"><a href="/student/delete?id=@student.Id" class="Button">Delete</a></button>
+      </td>
+    </tr>
+
+  }
+
+  </tbody>
+</table>
+<style>
+
+</style>

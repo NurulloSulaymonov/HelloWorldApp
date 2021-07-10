@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using JsonConverter = System.Text.Json.Serialization.JsonConverter;
 
@@ -14,6 +15,7 @@ namespace HelloWorld.Models.ViewModel
         {
 
         }
+
         public List<Stud> GetListOfStud()
         {
             var jsonString = File.ReadAllText("student.json");
@@ -58,6 +60,15 @@ namespace HelloWorld.Models.ViewModel
             var text = JsonConvert.SerializeObject(students);
             File.WriteAllText("student.json", text);
             return student;
+        }
+
+        public void Delete(int id)
+        {
+            var list = GetListOfStud();
+            var x = list.First(x => x.Id == id);
+            list.Remove(x);
+            var text = JsonConvert.SerializeObject(list);
+            File.WriteAllText("student.json", text);
         }
     }
 }
