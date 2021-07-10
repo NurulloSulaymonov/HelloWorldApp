@@ -1,18 +1,39 @@
 @model Stud
-<form action="update" method="post">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/update.css">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri" rel="stylesheet">
+</head>
+<body>
+<br>
+<div style=" font-family: Cambria ">
+    <h1 style="text-align:center">Update</h1>
+</div>
+<div class="box">
+    <form action="update" method="post">
 
-    <div class="form-row">
+
         <div class="form-group col-md-6">
             <input hidden type="text" asp-for="Id">
             <label asp-for="Name"></label>
             <input type="text" class="form-control" placeholder="Name" asp-for="Name">
             <span class="text-danger" asp-validation-for="Name"></span>
         </div>
+        <br>
         <div class="form-group col-md-6">
             <label asp-for="Gmail"></label>
             <input type="text" class="form-control" placeholder="Gmail" asp-for="Gmail">
             <span class="text-danger" asp-validation-for="Gmail"></span>
         </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Update</button>
-</form>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+
+</div>
+
+</body>
+</html>

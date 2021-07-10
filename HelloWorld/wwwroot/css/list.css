@@ -1,0 +1,52 @@
+﻿body {
+    background: #f0f0f2;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.box {
+    background: white;
+    
+    margin: auto;
+    margin-top: 5%;
+    max-width: 50%;
+ 
+    padding: 20px 50px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.box:hover {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    animation-name: example;
+    animation-duration: 0.25s;
+    border-left: 8px solid red;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+button {
+    border:none;
+    background: red;
+    color: #f0f0f2;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+button:hover {
+    border-right: 2px solid black;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+p {
+    text-align: justify;
+}
+
+@keyframes example {
+    0%   {border-left: 2px solid #ffffff;}
+    25%  {border-left: 3px solid #ffe6e6;}
+    50%  {border-left: 4px solid #ff8080;}
+    100% {border-left: 5px solid #ff0000;}
+}

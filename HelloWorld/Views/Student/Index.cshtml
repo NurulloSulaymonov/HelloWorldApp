@@ -1,9 +1,27 @@
 ﻿@model List<Stud>
 
-@foreach (var student in Model)
+@foreach (var student in @Model)
 {
-    <h1>Name : @student.Name</h1>
-    <h1>Gmail : @student.Gmail</h1>
-    <a href="/student/update?id=@student.Id">Edit</a>  
-    <hr/>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="~/css/list.css">
+        <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri" rel="stylesheet">
+    </head>
+    <body>
+
+    <div class="box" style="width: 800px;">
+        <h3>Name : @student.Name</h3>
+            <h3>Gmail : @student.Gmail</h3>
+            <a href="/student/update?id=@student.Id">Edit</a>  
+            <hr/>
+    </div>
+
+    </body>
+    </html>
+
+    
 }

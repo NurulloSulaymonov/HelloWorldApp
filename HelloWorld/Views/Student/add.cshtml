@@ -1,17 +1,10 @@
 ﻿@model Stud
-<form action="Add" method="post">
-
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label asp-for="Name"></label>
-            <input type="text" class="form-control" placeholder="Name" asp-for="Name">
-            <span class="text-danger" asp-validation-for="Name"></span>
-        </div>
-        <div class="form-group col-md-6">
-            <label asp-for="Gmail"></label>
-            <input type="text" class="form-control" placeholder="Gmail" asp-for="Gmail">
-            <span class="text-danger" asp-validation-for="Gmail"></span>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Register</button>
+<body style="background-image:url('@Url.Content("~/img/image.jpg")'); background-size: cover">
+<link rel="stylesheet" href="~/css/style.css">
+<form class="box" action="Add" method="post">
+    <h2 style="color: white">Register</h2>
+    <input type="text" placeholder="Name" asp-for="Name">
+    <input type="text"  placeholder="Gmail" asp-for="Gmail">
+    <button type="submit">Register</button>
 </form>
+</body>
