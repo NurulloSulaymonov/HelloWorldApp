@@ -28,7 +28,11 @@ namespace HelloWorld.Controllers
 string b="test";
             return View();
         }
-
+        public IActionResult Salomati()
+        {
+            return View() ;
+        }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
