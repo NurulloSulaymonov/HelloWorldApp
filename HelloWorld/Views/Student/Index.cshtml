@@ -1,9 +1,38 @@
-﻿@model List<Stud>
+﻿@model List<Student>
 
-@foreach (var student in Model)
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Gmail</th>
+            <th scope="col">More</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var student in Model)
+        {
+            <tr>
+                <th scope="row">@student.Id</th>
+                <td>@student.Name</td>
+                <td>@student.Gmail</td>
+                <td>
+                    <a href="/student/update?id=@student.Id">Edit</a>
+                    <a href="/student/delete?id=@student.Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+@if (ViewBag.Message != null)
 {
-    <h1>Name : @student.Name</h1>
-    <h1>Gmail : @student.Gmail</h1>
-    <a href="/student/update?id=@student.Id">Edit</a>  
-    <hr/>
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+    </script>
 }

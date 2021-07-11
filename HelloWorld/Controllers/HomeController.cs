@@ -25,14 +25,13 @@ namespace HelloWorld.Controllers
 
         public IActionResult Privacy()
         {
-string b="test";
             return View();
         }
         public IActionResult Salomati()
         {
-            return View() ;
+            return View();
         }
-        
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

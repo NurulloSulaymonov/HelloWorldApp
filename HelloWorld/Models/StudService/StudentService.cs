@@ -14,14 +14,14 @@ namespace HelloWorld.Models.ViewModel
         {
 
         }
-        public List<Stud> GetListOfStud()
+        public List<Student> GetListOfStud()
         {
             var jsonString = File.ReadAllText("student.json");
-            var studentList = JsonConvert.DeserializeObject<List<Stud>>(jsonString);
+            var studentList = JsonConvert.DeserializeObject<List<Student>>(jsonString);
             return studentList;
         }
 
-        public Stud NewStudent(Stud newstudent)
+        public Student NewStudent(Student newstudent)
         {
             var everyone = GetListOfStud();
             //if collection is empty we just add a new student
@@ -42,22 +42,39 @@ namespace HelloWorld.Models.ViewModel
             return newstudent;
         }
 
-        public Stud GetStudentForUpdate(int id)
+        public Student GetStudentForUpdate(int id)
         {
             var students = GetListOfStud();
-            return students.First(x => x.Id == id);
+            return students.FirstOrDefault(x => x.Id == id);
         }
 
-        public Stud UpdateStudent(Stud student)
+        public Student UpdateStudent(Student student)
         {
             var students = GetListOfStud();
-            var findStudent = students.First(x=>x.Id == student.Id);
+            var findStudent = students.First(x => x.Id == student.Id);
             findStudent.Gmail = student.Gmail;
             findStudent.Name = student.Name;
-            
+
             var text = JsonConvert.SerializeObject(students);
             File.WriteAllText("student.json", text);
             return student;
+        }
+
+        public bool Delete(int id)
+        {
+
+            var students = GetListOfStud();
+            var student = students.FirstOrDefault(x => x.Id == id); // look for student
+            if (student == null)
+            {
+                return false;
+            }
+
+            students.Remove(student);
+            var text = JsonConvert.SerializeObject(students);
+            File.WriteAllText("student.json", text);
+            return true;
+
         }
     }
 }

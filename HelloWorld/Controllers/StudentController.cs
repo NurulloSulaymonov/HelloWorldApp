@@ -17,43 +17,57 @@ namespace HelloWorld.Controllers
             return View(listofStudents);
         }
 
-        public IActionResult list()
+        public IActionResult Success([FromQuery] int id)
         {
             return View();
         }
 
+
+
+        //create get and post
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult Create()
         {
-            var emptyStudent = new Stud();
+            var emptyStudent = new Student();
             return View(emptyStudent);
         }
 
+
         [HttpPost]
-        public IActionResult Add(Stud student)
+        public IActionResult Create(Student student)
         {
             if (ModelState.IsValid == false)
                 return View(student);
             _studService.NewStudent(student);
+            ViewBag.Message = "Success";
             return RedirectToAction("Index");
         }
 
 
-        //for update
-
+        //for update get and post
         [HttpGet]
         public IActionResult Update([FromQuery] int id)
         {
             var student = _studService.GetStudentForUpdate(id);
+            if (student == null) return RedirectToAction("index");
             return View(student);
         }
 
         [HttpPost]
-        public IActionResult Update(Stud model)
+        public IActionResult Update(Student model)
         {
             if (ModelState.IsValid == false) return View(model);
             var update = _studService.UpdateStudent(model);
             return RedirectToAction("Index");
         }
+
+        //for delete 
+        public IActionResult Delete([FromQuery] int id)
+        {
+
+            _studService.Delete(id);
+            return RedirectToAction("index", "Home");
+        }
+
     }
 }
