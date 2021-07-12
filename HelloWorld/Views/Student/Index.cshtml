@@ -19,11 +19,15 @@
                 <td>@student.Gmail</td>
                 <td>
                     <a href="/student/update?id=@student.Id">Edit</a>
-                    <a href="/student/delete?id=@student.Id">Delete</a>
+                    <a href="/student/delete?id=@student.Id" onclick="myFunction()">Delete</a>
                 </td>
             </tr>
         }
-
+<script>
+function myFunction() {
+  alert("Successfully deleted");
+}
+</script>
     </tbody>
 </table>
 

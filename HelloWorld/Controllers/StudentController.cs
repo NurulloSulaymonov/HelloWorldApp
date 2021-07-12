@@ -66,7 +66,7 @@ namespace HelloWorld.Controllers
         {
 
             _studService.Delete(id);
-            return RedirectToAction("index", "Home");
+            return RedirectToAction("index", "Student");
         }
 
     }
