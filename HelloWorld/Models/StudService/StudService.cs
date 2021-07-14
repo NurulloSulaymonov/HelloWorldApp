@@ -59,5 +59,22 @@ namespace HelloWorld.Models.ViewModel
             File.WriteAllText("student.json", text);
             return student;
         }
+        public bool Delete(int id)
+        {
+
+            var students = GetListOfStud();
+            var student = students.FirstOrDefault(x => x.Id == id); // look for student
+            if (student == null)
+            {
+                return false;
+            }
+
+            students.Remove(student);
+            var text = JsonConvert.SerializeObject(students);
+            File.WriteAllText("student.json", text);
+            return true;
+
+        }
+        
     }
 }
