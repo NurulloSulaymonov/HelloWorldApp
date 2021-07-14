@@ -16,12 +16,6 @@ namespace HelloWorld.Controllers
             var listofStudents = _studService.GetListOfStud();
             return View(listofStudents);
         }
-
-        public IActionResult list()
-        {
-            return View();
-        }
-
         [HttpGet]
         public IActionResult Add()
         {
@@ -37,9 +31,6 @@ namespace HelloWorld.Controllers
             _studService.NewStudent(student);
             return RedirectToAction("Index");
         }
-
-
-        //for update
 
         [HttpGet]
         public IActionResult Update([FromQuery] int id)

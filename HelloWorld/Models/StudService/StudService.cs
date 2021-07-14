@@ -26,7 +26,6 @@ namespace HelloWorld.Models.ViewModel
         public Stud NewStudent(Stud newstudent)
         {
             var everyone = GetListOfStud();
-            //if collection is empty we just add a new student
             if (everyone.Count == 0)
             {
                 newstudent.Id = 1;

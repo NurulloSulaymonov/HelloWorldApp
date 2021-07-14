@@ -19,7 +19,7 @@
       <td>@student.Gmail</td>
       <td>
         <a href="/student/update?id=@student.Id">Edit</a>
-        <button onclick="alert('Congrats')"><a href="/student/delete?id=@student.Id" class="Button">Delete</a></button>
+        <button onclick="Fun()"><a href="/student/delete?id=@student.Id" class="Button">Delete</a></button>
       </td>
     </tr>
 
@@ -27,6 +27,13 @@
 
   </tbody>
 </table>
-<style>
-
-</style>
+<script>
+      function Fun() {
+        let confirmAction = confirm("Are you sure to execute this action?");
+        if (confirmAction) {
+          alert("Action successfully executed");
+        } else {
+          alert("Haha it was joke");
+        }
+      }
+</script>
