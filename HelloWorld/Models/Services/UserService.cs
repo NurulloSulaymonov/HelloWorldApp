@@ -9,6 +9,10 @@ namespace HelloWorld.Models.UserService
 {
     public class UserService
     {
+        public UserService()
+        {
+
+        }
 
         public List<User> GetUserList()
         {
@@ -16,31 +20,36 @@ namespace HelloWorld.Models.UserService
             var Spiska = JsonConvert.DeserializeObject<List<User>>(jsonString);
             return Spiska;
         }
-        public User Register(RegisterUser model)
+        public bool Register(RegisterView model)
         {
             var users = GetUserList();
-            if (users.Any(x => x.Username == model.Username) == true) return null;
-            var last = users.OrderBy(x => x.Id).Last().Id;
+            if (users.Any(x => x.UserName == model.UserName) == true) return false;
 
             var newUser = new User()
             {
-                Id = last + 1,
                 Password = model.Password,
-                PhoneNumber = model.PhoneNumber,
-                Username = model.Username
+                Phone = model.Phone,
+                UserName = model.UserName
             };
+            if (users.Count() == 0)
+            {
+                newUser.Id = 1;
+            }
+            else
+            {
+                var last = users.OrderBy(x => x.Id).Last().Id;
+                newUser.Id = last + 1;
+            }
             users.Add(newUser);
             var text = JsonConvert.SerializeObject(users);
             System.IO.File.WriteAllText("users.json", text);
-            return newUser;
+            return true;
         }
 
-        public void AddUser(User user)
+        public bool Login(LoginView model)
         {
             var users = GetUserList();
-            users.Add(user);
-            var text = JsonConvert.SerializeObject(users);
-            System.IO.File.WriteAllText("users.json", text);
+            return (users.Any(x => x.UserName == model.UserName && x.Password == model.Password));
         }
     }
 }

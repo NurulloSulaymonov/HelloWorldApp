@@ -8,4 +8,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Student\add.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Student\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Student\Update.cshtml" />
+  </ItemGroup>
+
 </Project>

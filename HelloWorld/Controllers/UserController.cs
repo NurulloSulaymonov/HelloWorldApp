@@ -1,6 +1,7 @@
 using HelloWorld.Models.UserService;
 using HelloWorld.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using User = HelloWorld.Models.UserService;
 
 namespace HelloWorld.Controllers
 {
@@ -11,24 +12,43 @@ namespace HelloWorld.Controllers
         {
             _userService = new UserService();
         }
-
-        public IActionResult User()
+        [HttpGet]
+        public IActionResult Register()
         {
-            var empty = new User();
-            return View(empty);
+            return View(new RegisterView());
         }
 
-        public IActionResult Login()
+        [HttpPost]
+        public IActionResult Register(RegisterView model)
         {
-            return View();
+            bool success = _userService.Register(model);
+            if (success == false || ModelState.IsValid == false)
+                return View(model);
+            return RedirectToAction("Login");
         }
 
         [HttpGet]
-        public IActionResult Registered(RegisterUser newuser)
+        public IActionResult Login()
         {
-            var GetUser = _userService.Register(newuser);
-            _userService.AddUser(GetUser);
-            return RedirectToAction("Login");
+            return View(new LoginView());
+        }
+
+        [HttpPost]
+        public IActionResult Login(LoginView model)
+        {
+            bool success = _userService.Login(model);
+            if (success == false || ModelState.IsValid == false)
+                return View(model);
+            else
+            {
+                return RedirectToAction("Success");
+            }
+
+        }
+
+        public IActionResult Success()
+        {
+            return View();
         }
         
     }
