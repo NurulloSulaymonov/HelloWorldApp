@@ -8,8 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SchoolSystem.Models.Services;
+using SchoolSystem.Models.ViewModel;
 
-namespace HelloWorld
+namespace SchoolSystem
 {
     public class Startup
     {
@@ -24,6 +26,7 @@ namespace HelloWorld
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

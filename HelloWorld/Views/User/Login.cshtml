@@ -1,0 +1,9 @@
+﻿@model SchoolSystem.Models.ViewModel.LoginViewModel
+
+<h1>Login</h1>
+
+<form action="login" method="post">
+   Login <input type="text" placeholder="Username" asp-for="UserName">
+   Password <input type="password" placeholder="Password" asp-for="Password" >
+   <input type="submit" name="Submit" id="submit">
+</form>

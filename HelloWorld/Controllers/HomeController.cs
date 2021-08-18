@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using HelloWorld.Models;
+using SchoolSystem.Models;
 
-namespace HelloWorld.Controllers
+namespace SchoolSystem.Controllers
 {
     public class HomeController : Controller
     {
@@ -27,11 +27,7 @@ namespace HelloWorld.Controllers
         {
             return View();
         }
-        public IActionResult Salomati()
-        {
-            return View() ;
-        }
-        
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,0 +1,16 @@
+﻿@model SchoolSystem.Models.ViewModel.RegisterViewModel
+
+
+<h1>Register</h1>
+<hr>
+<form action="register" method="post">
+    Login <input type="text" placeholder="Username" asp-for="UserName"> 
+     <span class="text-danger" asp-validation-for="UserName"></span> <br>
+    Phone <input type="text" placeholder="Phone" asp-for="Phone"> 
+    <span class="text-danger" asp-validation-for="Phone"></span><br>
+    Password <input type="password" placeholder="Password" asp-for="Password" >
+<span class="text-danger" asp-validation-for="Password"></span><br>
+    Confirm Password <input type="password" placeholder="Confirm Password" asp-for="ConfirmPassword" >
+   <span class="text-danger" asp-validation-for="ConfirmPassword"></span><br>
+    <input type="submit" name="Submit" id="submit">
+</form>
