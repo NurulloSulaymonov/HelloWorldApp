@@ -7,10 +7,10 @@ namespace HelloWorld.Controllers
 {
     public class UserController : Controller
     {
-        private readonly UserService _userService;
-        public UserController()
+        private readonly IUserService _userService;
+        public UserController(IUserService userService)
         {
-            _userService = new UserService();
+            _userService = userService;
         }
         [HttpGet]
         public IActionResult Register()
@@ -18,6 +18,10 @@ namespace HelloWorld.Controllers
             return View(new RegisterView());
         }
 
+        public int GetRandomNumber()
+        {
+            return _userService.GetRandomNumber();
+        }
         [HttpPost]
         public IActionResult Register(RegisterView model)
         {
@@ -50,6 +54,11 @@ namespace HelloWorld.Controllers
         {
             return View();
         }
-        
+
+        public IActionResult GetUsersList()
+        {
+            var list = _userService.GetUsersList();
+            return View(list);
+        }
     }
 }
