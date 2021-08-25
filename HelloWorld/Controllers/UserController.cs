@@ -18,10 +18,7 @@ namespace HelloWorld.Controllers
             return View(new RegisterView());
         }
 
-        public int GetRandomNumber()
-        {
-            return _userService.GetRandomNumber();
-        }
+       
         [HttpPost]
         public IActionResult Register(RegisterView model)
         {
@@ -57,7 +54,7 @@ namespace HelloWorld.Controllers
 
         public IActionResult GetUsersList()
         {
-            var list = _userService.GetUsersList();
+          var list = _userService.GetUsersList();
             return View(list);
         }
     }

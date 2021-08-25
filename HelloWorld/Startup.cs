@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HelloWorld.Models.Data;
 using HelloWorld.Models.UserService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +28,12 @@ namespace HelloWorld
         {
             services.AddControllersWithViews();
             services.AddScoped<IUserService, UserService>();
+            
+            //config database (ef core)
+            services.AddDbContext<StudentContext>(options =>
+            {
+                options.UseNpgsql(Configuration.GetConnectionString("StudentConnection"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

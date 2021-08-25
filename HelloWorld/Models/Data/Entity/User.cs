@@ -1,4 +1,4 @@
-namespace HelloWorld.Models.ViewModel
+namespace HelloWorld.Models.Data.Entity
 {
     public class User
     {
